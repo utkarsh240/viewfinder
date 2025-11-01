@@ -3,7 +3,7 @@ import { Camera, ChevronLeft, ChevronRight, X, Instagram, Mail, Phone } from 'lu
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const imageFiles = [
+const defaultImageFiles = [
   "DSC07642 copy.jpg",
   "DSC07635 copy 2.jpg",
   "DSC00507 copy.jpg",
@@ -55,10 +55,27 @@ gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   const rootRef = useRef(null)
+  const [imageFiles, setImageFiles] = useState(defaultImageFiles)
+
+  useEffect(() => {
+    // attempt to load generated manifest (created by scripts/optimize-images.mjs)
+    fetch('/portfolio.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('manifest not found')
+        return res.json()
+      })
+      .then((data) => {
+        if (Array.isArray(data) && data.length) setImageFiles(data)
+      })
+      .catch(() => {
+        // fallback to built-in list (defaultImageFiles)
+      })
+  }, [])
+
   const images = useMemo(() => imageFiles.map((f) => ({
     src: `/portfolio/${f}`,
     alt: toAltText(f),
-  })), [])
+  })), [imageFiles])
 
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const overlayRef = useRef(null)

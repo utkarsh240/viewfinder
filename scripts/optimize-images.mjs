@@ -31,6 +31,8 @@ async function optimizeOne(file) {
   if (!stat.isFile()) return
 
   const ext = path.extname(file).toLowerCase()
+  // skip already-generated responsive files (they contain -w{width})
+  if (/-w\d+/i.test(file)) return
   if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) return
 
   const input = sharp(inPath)
@@ -69,6 +71,26 @@ async function main() {
       console.error('Failed to optimize', file, err?.message)
     }
   }
+
+  // create manifest containing only original/source images (exclude generated -w variants)
+  try {
+    const all = await fs.readdir(inputDir)
+    const originals = []
+    for (const f of all) {
+      const ext = path.extname(f).toLowerCase()
+      if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) continue
+      if (/-w\d+/i.test(f)) continue
+      const p = path.join(inputDir, f)
+      const s = await fs.stat(p)
+      if (s.isFile()) originals.push(f)
+    }
+    const manifestPath = path.join(root, 'public', 'portfolio.json')
+    await fs.writeFile(manifestPath, JSON.stringify(originals, null, 2), 'utf8')
+    console.log('Wrote image manifest to', manifestPath)
+  } catch (err) {
+    console.error('Failed to write portfolio manifest', err?.message)
+  }
+
   console.log('Image optimization complete')
 }
 
