@@ -91,8 +91,7 @@ export default function App() {
   }, [images.length]);
 
   return (
-    <div className="font-sans-body bg-[#050505] text-neutral-200 min-h-screen selection:bg-neutral-800 selection:text-white">
-      <NoiseOverlay />
+    <div className="font-sans-body bg-[#0e100f] text-[#f4f0db] min-h-screen selection:bg-[#0ae448] selection:text-black">
       <Navbar />
 
       <main>
@@ -104,29 +103,28 @@ export default function App() {
         </div>
 
         {/* About Section */}
-        <section id="about" className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center">
-          <h3 className="font-title text-5xl md:text-6xl text-white mb-10 tracking-widest uppercase font-semibold">About</h3>
-          <div className="h-px w-16 bg-neutral-800 mx-auto mb-10" />
-          <p className="text-neutral-400 leading-relaxed max-w-2xl mx-auto font-light text-sm md:text-base tracking-wide">
-            At Viewfinder Ace, we provide minimalist photography that celebrates the craft of storytelling through images. Every frame is composed with intention—embracing silence, contrast, and the poetry of light. Our work focuses on creating timeless visuals that capture emotion, detail, and authenticity with elegance.
+        <section id="about" className="relative z-10 mx-auto max-w-4xl px-6 py-32 text-center flex flex-col items-center">
+          <h3 className="font-title text-5xl md:text-7xl font-bold tracking-tighter text-[#f4f0db] mb-8">About</h3>
+          <p className="text-[#f4f0db]/70 leading-relaxed max-w-2xl mx-auto font-sans-body text-base md:text-lg">
+            At Viewfinder Ace, we provide minimalist photography that celebrates the craft of storytelling through images. Every frame is composed with intention—embracing silence, contrast, and the poetry of light. Our work focuses on creating timeless visuals that capture emotion, detail, and authenticity with absolute precision.
           </p>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="relative z-10 mx-auto max-w-4xl px-6 pb-32 text-center">
-          <div className="rounded-none md:rounded-3xl glass border border-neutral-800/40 p-10 md:p-16 cinematic-shadow">
-            <h3 className="font-title text-4xl md:text-5xl text-white tracking-widest uppercase font-semibold">Contact</h3>
-            <p className="text-neutral-400 mt-4 text-sm tracking-wide uppercase">For collaborations or prints, reach out:</p>
+        <section id="contact" className="relative z-10 mx-auto max-w-5xl px-6 pb-40 text-center">
+          <div className="rounded-[2.5rem] bg-[#1a1d1b] border border-white/5 p-12 md:p-20 shadow-2xl">
+            <h3 className="font-title text-5xl md:text-7xl font-bold tracking-tighter text-[#f4f0db]">Contact</h3>
+            <p className="text-[#f4f0db]/50 mt-6 text-lg font-medium tracking-tight">For collaborations or prints, reach out:</p>
 
-            <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-6">
-              <a href="mailto:ace.viewfinder@gmail.com" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-neutral-900 border border-neutral-800 hover:bg-white hover:text-black hover:border-white text-neutral-300 px-8 py-3 transition-all duration-300 uppercase tracking-widest text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-                <Mail size={16} /> Email Us
+            <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
+              <a href="mailto:ace.viewfinder@gmail.com" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-[#0ae448] text-[#0e100f] px-10 py-4 transition-all duration-300 font-bold hover:bg-[#0ae448]/90 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0ae448]/50 shadow-[0_0_20px_rgba(10,228,72,0.3)]">
+                <Mail size={20} /> Email Us
               </a>
-              <a href="tel:+919801635520" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-neutral-900 border border-neutral-800 hover:bg-white hover:text-black hover:border-white text-neutral-300 px-8 py-3 transition-all duration-300 uppercase tracking-widest text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-                <Phone size={16} /> +91 9801635520
+              <a href="tel:+919801635520" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-neutral-700 bg-transparent text-[#f4f0db] px-10 py-4 transition-all duration-300 font-bold hover:border-white focus-visible:outline-none">
+                <Phone size={20} /> +91 9801635520
               </a>
-              <a href="https://www.instagram.com/viewfinder.ace?igsh=MTJscmt0b3ZvbDZ4dw==" target="_blank" rel="noreferrer" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-neutral-900 border border-neutral-800 hover:bg-white hover:text-black hover:border-white text-neutral-300 px-8 py-3 transition-all duration-300 uppercase tracking-widest text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
-                <Instagram size={16} /> Instagram
+              <a href="https://www.instagram.com/viewfinder.ace?igsh=MTJscmt0b3ZvbDZ4dw==" target="_blank" rel="noreferrer" className="w-full md:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-neutral-700 bg-transparent text-[#f4f0db] px-10 py-4 transition-all duration-300 font-bold hover:border-white focus-visible:outline-none">
+                <Instagram size={20} /> Instagram
               </a>
             </div>
           </div>

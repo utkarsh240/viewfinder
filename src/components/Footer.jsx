@@ -1,18 +1,25 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { Camera } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="border-t border-neutral-800/60 py-12 md:py-20 text-center text-neutral-400 bg-[#050505]">
-            <div className="flex flex-col items-center justify-center gap-6">
-                <Camera size={28} className="text-neutral-600" />
-                <p className="text-sm tracking-[0.2em] uppercase font-sans-body text-neutral-500">
-                    © {new Date().getFullYear()} Viewfinder Ace
+        <footer className="bg-[#0e100f] px-6 md:px-12 py-12 border-t border-white/10 text-[#f4f0db]/50 font-sans-body">
+            <div className="mx-auto max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6">
+
+                <p className="text-[13px] font-bold tracking-tight uppercase">
+                    © {new Date().getFullYear()} Viewfinder Ace. All rights reserved.
                 </p>
-                <p className="text-xs text-neutral-600 max-w-sm px-4">
-                    Capturing light, motion, and quiet moments.
-                </p>
+
+                <div className="flex items-center gap-6">
+                    <a href="mailto:ace.viewfinder@gmail.com" className="hover:text-[#0ae448] transition-colors duration-300" aria-label="Email">
+                        <Mail size={20} strokeWidth={2.5} />
+                    </a>
+                    <a href="https://www.instagram.com/viewfinder.ace?igsh=MTJscmt0b3ZvbDZ4dw==" target="_blank" rel="noreferrer" className="hover:text-[#0ae448] transition-colors duration-300" aria-label="Instagram">
+                        <Instagram size={20} strokeWidth={2.5} />
+                    </a>
+                </div>
+
             </div>
         </footer>
     );
