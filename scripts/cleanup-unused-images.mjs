@@ -12,7 +12,7 @@ function getRootBase(filename) {
 
 async function loadUsedRoots() {
   const src = await fs.readFile(appFile, 'utf8')
-  const arrMatch = src.match(/const\s+imageFiles\s*=\s*\[([\s\S]*?)\]/m)
+  const arrMatch = src.match(/const\s+(?:defaultImageFiles|imageFiles)\s*=\s*\[([\s\S]*?)\]/m)
   if (!arrMatch) return new Set()
   const inner = arrMatch[1]
   const files = []
